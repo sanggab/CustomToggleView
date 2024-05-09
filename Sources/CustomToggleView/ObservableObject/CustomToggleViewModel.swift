@@ -9,23 +9,34 @@ import SwiftUI
 
 final class CustomToggleViewModel: ObservableObject {
     
+    struct KnobState: Equatable {
+        var knobModel: KnobModel = KnobModel()
+    }
+    
     struct State: Equatable {
         var model: ToggleModel = ToggleModel()
         
-        var isOnBgColor: Color = .yellow
-        var isOffBgColor: Color = .gray
-        
-//        var isOnKnobEdge: EdgeInsets = EdgeInsets(top: .zero, leading: .zero, bottom: .zero, trailing: .zero)
-//        var isOffKnobEdge: EdgeInsets = EdgeInsets(top: .zero, leading: .zero, bottom: .zero, trailing: .zero)
-        
-        var knobModel: KnobModel = KnobModel()
+        var isOnColor: Color = .yellow
+        var isOffColor: Color = .gray
     }
     
     @Published var state: State = State()
     
+    @Published var knobState: KnobState = KnobState()
     
     func callAsFunction<V: Equatable>(_ keyPath: KeyPath<CustomToggleViewModel.State, V>) -> V {
         return state[keyPath: keyPath]
     }
+    
+    func callAsFunction<V: Equatable>(_ keyPath: KeyPath<CustomToggleViewModel.KnobState, V>) -> V {
+        return knobState[keyPath: keyPath]
+    }
 
+    func updateMyProperties<V: Equatable>(_ keyPath: WritableKeyPath<CustomToggleViewModel.State, V>, _ newValue: V) {
+        state[keyPath: keyPath] = newValue
+    }
+    
+    func updateMyProperties<V: Equatable>(_ keyPath: WritableKeyPath<CustomToggleViewModel.KnobState, V>, _ newValue: V) {
+        knobState[keyPath: keyPath] = newValue
+    }
 }
