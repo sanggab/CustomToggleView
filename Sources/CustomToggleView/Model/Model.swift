@@ -47,18 +47,30 @@ public struct ToggleModel: Hashable {
         hasher.combine(buttonSize.width)
         hasher.combine(buttonSize.height)
         hasher.combine(buttonRadius)
+        hasher.combine(isOnColor)
+        hasher.combine(isOffColor)
     }
     
     public var spacing: CGFloat
+    
     public var buttonSize: CGSize
+    
     public var buttonRadius: CGFloat
+    
+    public var isOnColor: Color
+    
+    public var isOffColor: Color
     
     public init(spacing: CGFloat = .zero,
                 buttonSize: CGSize = CGSize(width: 36, height: 20),
-                buttonRadius: CGFloat = 20) {
+                buttonRadius: CGFloat = 20,
+                isOnColor: Color = .yellow,
+                isOffColor: Color = .white) {
         self.spacing = spacing
         self.buttonSize = buttonSize
         self.buttonRadius = buttonRadius
+        self.isOnColor = isOnColor
+        self.isOffColor = isOffColor
     }
 }
 

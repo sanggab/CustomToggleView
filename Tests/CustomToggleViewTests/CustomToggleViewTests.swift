@@ -11,7 +11,7 @@ final class CustomToggleViewTests: XCTestCase {
         
         let viewModel: CustomToggleViewModel = .init()
         
-        var model = viewModel(\.model)
+        var model = viewModel(\.toggleModel)
         
         XCTAssertNotNil(model)
         
@@ -19,6 +19,6 @@ final class CustomToggleViewTests: XCTestCase {
         
         XCTAssertTrue(model.spacing == 5)
         
-        XCTAssertNotEqual(model, viewModel(\.model), "model은 struct State에 있기 때문에 값 타입이여서 원본에 영향 X")
+        XCTAssertEqual(model, viewModel(\.toggleModel), "toggleModel은 struct State에 있기 때문에 값 타입이여서 원본에 영향 X")
     }
 }

@@ -14,15 +14,12 @@ final class CustomToggleViewModel: ObservableObject {
     }
     
     struct State: Equatable {
-        var model: ToggleModel = ToggleModel()
-        
-        var isOnColor: Color = .yellow
-        var isOffColor: Color = .gray
+        var toggleModel: ToggleModel = ToggleModel()
     }
     
-    @Published var state: State = State()
+    @Published private var state: State = State()
     
-    @Published var knobState: KnobState = KnobState()
+    @Published private var knobState: KnobState = KnobState()
     
     func callAsFunction<V: Equatable>(_ keyPath: KeyPath<CustomToggleViewModel.State, V>) -> V {
         return state[keyPath: keyPath]
@@ -32,11 +29,11 @@ final class CustomToggleViewModel: ObservableObject {
         return knobState[keyPath: keyPath]
     }
 
-    func updateMyProperties<V: Equatable>(_ keyPath: WritableKeyPath<CustomToggleViewModel.State, V>, _ newValue: V) {
+    func update<V: Equatable>(_ keyPath: WritableKeyPath<CustomToggleViewModel.State, V>, _ newValue: V) {
         state[keyPath: keyPath] = newValue
     }
     
-    func updateMyProperties<V: Equatable>(_ keyPath: WritableKeyPath<CustomToggleViewModel.KnobState, V>, _ newValue: V) {
+    func update<V: Equatable>(_ keyPath: WritableKeyPath<CustomToggleViewModel.KnobState, V>, _ newValue: V) {
         knobState[keyPath: keyPath] = newValue
     }
 }
