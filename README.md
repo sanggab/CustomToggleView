@@ -9,3 +9,7 @@ NewToggle(isOn: $state) {
 
 ![스크린샷 2024-05-10 오후 5 14 55](https://github.com/sanggab/CustomToggleView/assets/82999377/a4d2cc47-fe3c-42dc-be52-ed6d4ce426a2)
 
+### Requirements
+* iOS 15.0+
+* Xcode 13.0+
+* Swift Swift 5.5
