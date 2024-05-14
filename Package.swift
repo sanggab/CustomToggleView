@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "CustomToggleView",
-    platforms: [.iOS(.v15), .macOS(.v12), .tvOS(.v15), .watchOS(.v8)],
+    platforms: [.iOS(.v14), .macOS(.v11), .tvOS(.v14), .watchOS(.v7)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(

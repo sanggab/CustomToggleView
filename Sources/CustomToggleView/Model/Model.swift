@@ -44,31 +44,31 @@ struct KnobPadding: Hashable {
 public struct ToggleModel: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(spacing)
-        hasher.combine(buttonSize.width)
-        hasher.combine(buttonSize.height)
-        hasher.combine(buttonRadius)
+        hasher.combine(size.width)
+        hasher.combine(size.height)
+        hasher.combine(radius)
         hasher.combine(isOnColor)
         hasher.combine(isOffColor)
     }
     
     public var spacing: CGFloat
     
-    public var buttonSize: CGSize
+    public var size: CGSize
     
-    public var buttonRadius: CGFloat
+    public var radius: CGFloat
     
     public var isOnColor: Color
     
     public var isOffColor: Color
     
     public init(spacing: CGFloat = .zero,
-                buttonSize: CGSize = CGSize(width: 36, height: 20),
-                buttonRadius: CGFloat = 20,
+                size: CGSize = CGSize(width: 36, height: 20),
+                radius: CGFloat = 20,
                 isOnColor: Color = .yellow,
-                isOffColor: Color = .white) {
+                isOffColor: Color = .gray) {
         self.spacing = spacing
-        self.buttonSize = buttonSize
-        self.buttonRadius = buttonRadius
+        self.size = size
+        self.radius = radius
         self.isOnColor = isOnColor
         self.isOffColor = isOffColor
     }

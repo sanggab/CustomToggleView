@@ -23,22 +23,33 @@ public struct CustomToggleView<Content: View>: View {
             label()
                 .animation(nil, value: UUID())
             
-            RoundedRectangle(cornerRadius: viewModel(\.toggleModel.buttonRadius))
+            RoundedRectangle(cornerRadius: viewModel(\.toggleModel.radius))
                 .fill(isOn ? viewModel(\.toggleModel.isOnColor) : viewModel(\.toggleModel.isOffColor))
-                .frame(width: viewModel(\.toggleModel.buttonSize.width), height: viewModel(\.toggleModel.buttonSize.height))
-                .overlay {
-                    if let customBackgroundView {
-                        customBackgroundView
-                    }
-                }
-                .overlay {
-                    knobView
-                }
+                .frame(width: viewModel(\.toggleModel.size.width), height: viewModel(\.toggleModel.size.height))
+                .overlay(backgroundView, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .overlay(knobView, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                .overlay {
+//                    if let customBackgroundView {
+//                        customBackgroundView
+//                    }
+//                }
+//                .overlay {
+//                    knobView
+//                }
                 .onTapGesture {
                     withAnimation {
                         isOn.toggle()
                     }
                 }
+        }
+    }
+    
+    @ViewBuilder
+    private var backgroundView: some View {
+        if let customBackgroundView {
+            customBackgroundView
+        } else {
+            EmptyView()
         }
     }
     
@@ -54,12 +65,22 @@ public struct CustomToggleView<Content: View>: View {
     private var circleView: some View {
         Circle()
             .fill(isOn ? viewModel(\.knobModel.isOnColor) : viewModel(\.knobModel.isOffColor))
-            .overlay {
-                if let aboveKnobView {
-                    aboveKnobView
-                }
-            }
+            .overlay(customAboveKnobView, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//            .overlay {
+//                if let aboveKnobView {
+//                    aboveKnobView
+//                }
+//            }
             .padding(isOn ? viewModel(\.knobModel.edge.isOn) : viewModel(\.knobModel.edge.isOff))
+    }
+    
+    @ViewBuilder
+    private var customAboveKnobView: some View {
+        if let aboveKnobView {
+            aboveKnobView
+        } else {
+            EmptyView()
+        }
     }
 }
 
@@ -75,7 +96,6 @@ public extension CustomToggleView {
         let view = self
         view.viewModel.update(\.toggleModel.isOnColor, on)
         view.viewModel.update(\.toggleModel.isOffColor, off)
-        
         return view
     }
     // button의 background를 content로 교체한다
@@ -98,7 +118,7 @@ public extension CustomToggleView {
     func knobColor(on: Color = .white, off: Color = .white) -> CustomToggleView {
         let view = self
         view.viewModel.update(\.knobModel.isOnColor, on)
-        view.viewModel.update(\.knobModel.isOffColor, on)
+        view.viewModel.update(\.knobModel.isOffColor, off)
         return view
     }
     
