@@ -113,7 +113,8 @@ CustomToggleView(isOn: $state) {
 }
 ```
 
-<img width="330" alt="스크린샷 2024-05-13 오후 4 52 45" src="https://github.com/sanggab/HoneyMessageView/assets/82999377/9522f13e-8312-4d3f-98aa-8fedb6108d05">
+<img src="doc_img/replaceCustomBackgroundView.png" width="330"/>
+
 
 <a name="Knob_Modifier"></a>
 ## Knob Modifier
@@ -141,7 +142,8 @@ knob의 Color를 바꾼다
     .knobColor(.pink)
     ```
 
-    <img width="330" alt="스크린샷 2024-05-13 오후 4 52 19" src="https://github.com/sanggab/HoneyMessageView/assets/82999377/939bcded-6ec3-40d7-bc0b-f80dd8ab1946">    
+    <img src="doc_img/knobColor.png" width="330"/>   
+
 
 * **`knobColor(on: Color, off: Color) -> CustomToggleView`**   
 knob의 Color를 isOn State에 따라 바꾼다.
@@ -155,9 +157,9 @@ knob의 Color를 isOn State에 따라 바꾼다.
    .knobColor(on: .pink, off: .blue)
    ```
 
-   <img width="330" alt="스크린샷 2024-05-13 오후 4 51 34" src="https://github.com/sanggab/HoneyMessageView/assets/82999377/71f920dd-c66b-42c0-b790-997e2b34be76">
+   <img src="doc_img/knobColor_off.png" width="330"/>   
    <br>
-   <img width="330" alt="스크린샷 2024-05-13 오후 4 52 02" src="https://github.com/sanggab/HoneyMessageView/assets/82999377/14c894da-fd76-4667-938a-39140cf5d3be">
+   <img src="doc_img/knobColor_on.png" width="330"/>   
    <br/>
 
 <a name="knobPadding"></a>
@@ -183,8 +185,8 @@ length을 입력 안할경우, 0으로 들어간다
    }
    .knobPadding(.all, 2)
    ```
-
-   ![knobPadding](https://github.com/sanggab/HoneyMessageView/assets/82999377/5cd4b04a-a1e1-4f03-a4c7-cca45503ffa2)
+   
+   <img src="doc_img/knobPadding.gif" width="330"/>   
 
 * **`isOnKnobPadding(_ edges: Edge.Set = .all, _ length: CGFloat = .zero) -> CustomToggleView`**   
 isOn의 state가 true 일 때의 knob padding
@@ -199,7 +201,7 @@ length을 입력 안할경우, 0으로 들어간다
    .isOnKnobPadding(.all, 2)
    ```
 
-   ![isOnKnobPadding](https://github.com/sanggab/HoneyMessageView/assets/82999377/b6902e26-e1b6-4575-ab8e-83fc2e99aff4)
+   <img src="doc_img/isOnKnobPadding.gif" width="330"/>   
 
 * **`isOffKnobPadding(_ edges: Edge.Set = .all, _ length: CGFloat = .zero) -> CustomToggleView`**   
 isOn의 state가 false 일 때의 knob padding   
@@ -214,7 +216,7 @@ length을 입력 안할경우, 0으로 들어간다
    .isOffKnobPadding(.all, 2)
    ```
 
-   ![isOffKnobPadding](https://github.com/sanggab/HoneyMessageView/assets/82999377/9a3a383e-e77c-4867-9b0a-913c21fadbbb)
+   <img src="doc_img/isOffKnobPadding.gif" width="330"/>   
 
 
 
@@ -237,4 +239,4 @@ CustomToggleView(isOn: $state) {
 }
 ```
 
-<img width="330" alt="스크린샷 2024-05-13 오후 5 34 32" src="https://github.com/sanggab/HoneyMessageView/assets/82999377/d57b3779-d907-482e-8c2d-100a6f322bbe">
+<img src="doc_img/addViewAboveKnob.png" width="330"/>
