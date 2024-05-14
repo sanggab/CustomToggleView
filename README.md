@@ -3,7 +3,7 @@
 ### Requirements
 * iOS 14.0+
 * Xcode 13.0+
-* Swift Swift 5.5
+* Swift 5.5
 
 
 
