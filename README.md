@@ -2,8 +2,8 @@
 
 ### Requirements
 * iOS 14.0+
-* Xcode 13.0+
-* Swift 5.5
+* Xcode 12.0+
+* Swift 5.3
 
 
 
